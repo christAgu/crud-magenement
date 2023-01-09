@@ -1,0 +1,30 @@
+<div class="container mt-5">
+
+
+  <div *ngIf="deleteok" class="alert alert-danger alert-dismissible fade show  col-lg-4" role="alert">
+    <strong> {{deleteok}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+</div>
+<table class="table table table-striped ">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Fullname</th>
+      <th scope="col">email</th>
+      <th scope="col">mobile</th>
+      <th scope="col">Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of readUser, let i =index">
+      <th scope="row">{{user.id}}</th>
+      <td>{{user.fullname}} </td>
+      <td>{{user.email}}</td>
+      <td>{{user.mobile}}</td>
+      <td> <button type="submit" class="btn btn-danger btn-sm" (click)="deleteID(user.id)">Delete</button>&nbsp;
+      <a [routerLink]="['/creat',user.id]" class="btn btn-sm btn-success">Update</a></td>
+
+
+  </tbody>
+</table>

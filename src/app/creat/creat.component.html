@@ -1,0 +1,49 @@
+<div class="container mt-5 ">
+  <div *ngIf="errMsg" class="alert alert-danger alert-dismissible fade show  col-lg-2" role="alert">
+    <strong> {{errMsg}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  <div class="container mt-5 ">
+    <div *ngIf="okMsg" class="alert alert-success alert-dismissible fade show  col-lg-4" role="alert">
+      <strong> {{okMsg}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+
+
+  <form [formGroup]="userForm">
+    <div class="mt-2 col-lg-4">
+      <label for="exampleInputEmail1" class="form-label">Enter fullname </label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        formControlName="fullname">
+
+    </div>
+    <div class=" col-lg-4">
+      <label for="exampleInputEmail1" class="form-label">user id </label>
+      <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        formControlName="id">
+
+    </div>
+    <div class=" col-lg-4">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        formControlName="email">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class=" col-lg-4">
+      <label for="exampleInputPassword1" class="form-label">mobile</label>
+      <input type="number" class="form-control" id="exampleInputPassword1" formControlName="mobile">
+    </div>
+
+    <div  *ngIf="!getParamid"class="mt-2 col-lg-4">
+      <button type="submit" class="btn btn-primary btn-sm"  (click)=userSubmit()>Submit</button>
+    </div>
+
+    <div *ngIf="getParamid" class="mt-2 col-lg-4" >
+      <button type="submit" class="btn btn-dark btn-sm" (click)=userUpdate()>Update user</button>
+    </div>
+  </form>
+
+
+</div>
